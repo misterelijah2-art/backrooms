@@ -31,10 +31,5 @@ public class HoundEntity extends Monster {
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0f));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
-
-    // isSunBurnTick() removed in 1.21.1 — use shouldBurnInDay()
-    @Override
-    protected boolean shouldBurnInDay() {
-        return false;
-    }
+    // No sun burn override - Hound lives in the Backrooms, not the surface.
 }

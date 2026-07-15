@@ -13,9 +13,6 @@ public class BackroomsMapItem extends Item {
         super(props);
     }
 
-    // 1.21.1 Mojmap: appendHoverText(ItemStack, Item.TooltipContext, List<Component>, TooltipFlag)
-    // Do NOT use @Override if the signature cannot be verified — remove it to avoid compile error
-    // The correct signature for 1.21.1:
     @Override
     public void appendHoverText(ItemStack stack,
                                 Item.TooltipContext context,

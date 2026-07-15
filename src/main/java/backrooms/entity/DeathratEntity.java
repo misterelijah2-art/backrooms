@@ -1,11 +1,8 @@
 package backrooms.entity;
 
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -37,14 +34,8 @@ public class DeathratEntity extends Monster {
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
-    // 1.21.1 signature: doHurtTarget(ServerLevel, Entity)
     @Override
-    public boolean doHurtTarget(ServerLevel serverLevel, Entity target) {
-        boolean hit = super.doHurtTarget(serverLevel, target);
-        if (hit && target instanceof LivingEntity living) {
-            living.addEffect(new MobEffectInstance(MobEffects.POISON, 100, 0));
-            living.addEffect(new MobEffectInstance(MobEffects.HUNGER, 120, 0));
-        }
-        return hit;
+    public boolean doHurtTarget(ServerLevel level, Entity target) {
+        return super.doHurtTarget(level, target);
     }
 }

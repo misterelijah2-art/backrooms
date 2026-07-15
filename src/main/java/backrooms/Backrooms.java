@@ -14,14 +14,13 @@ public class Backrooms implements ModInitializer {
     @Override
     public void onInitialize() {
         LOGGER.info("You have noclipped into the Backrooms.");
-
         BackroomsSounds.register();
         BackroomsEffects.register();
         BackroomsBlocks.register();
         BackroomsItems.register();
         BackroomsEntities.register();
         BackroomsEntities.registerAttributes();
-        // BackroomsDimensions has no register() — keys are defined as constants only
+        BackroomsDimensions.register();
     }
 
     public static ResourceLocation id(String path) {

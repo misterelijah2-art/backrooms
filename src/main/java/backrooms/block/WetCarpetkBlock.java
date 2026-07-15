@@ -12,14 +12,13 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class WetCarpetkBlock extends Block {
 
-    public WetCarpetkBlock(Properties props) {
+    public WetCarpetkBlock(BlockBehaviour.Properties props) {
         super(props);
     }
 
     @Override
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
         if (!level.isClientSide() && entity instanceof LivingEntity living) {
-            // MOVEMENT_SLOWDOWN = Slowness in 1.21.1
             living.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 40, 0, false, false));
         }
         super.stepOn(level, pos, state, entity);

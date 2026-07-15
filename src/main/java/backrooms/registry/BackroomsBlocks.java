@@ -23,44 +23,36 @@ public class BackroomsBlocks {
         BlockBehaviour.Properties.ofFullCopy(Blocks.GLOWSTONE).lightLevel(s -> 10).sound(SoundType.GLASS));
     public static final Block FLUORESCENT_LIGHT = new Block(
         BlockBehaviour.Properties.ofFullCopy(Blocks.GLOWSTONE).lightLevel(s -> 15).sound(SoundType.GLASS));
-
     public static final Block CONCRETE_PILLAR = new Block(
         BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).sound(SoundType.STONE));
     public static final Block INDUSTRIAL_FLOOR = new Block(
         BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_STONE).sound(SoundType.STONE));
     public static final Block CHAIN_LINK_FENCE_BLOCK = new Block(
         BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BARS).sound(SoundType.METAL));
-
     public static final Block RUSTY_PIPE = new Block(
         BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.METAL));
     public static final Block DRIPPING_PIPE = new Block(
         BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.METAL));
     public static final Block STEAM_VENT = new Block(
         BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.METAL));
-
     public static final Block ELECTRICAL_BOX = new Block(
         BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).lightLevel(s -> 3).sound(SoundType.METAL));
     public static final Block DARK_CONCRETE = new Block(
         BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CONCRETE).sound(SoundType.STONE));
-
     public static final Block OFFICE_TILES = new Block(
         BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_STONE).sound(SoundType.STONE));
     public static final Block OFFICE_CEILING = new Block(
         BlockBehaviour.Properties.ofFullCopy(Blocks.QUARTZ_BLOCK).sound(SoundType.STONE));
     public static final Block BROKEN_GLASS = new Block(
         BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS).sound(SoundType.GLASS).noOcclusion());
-
     public static final Block HOTEL_WALLPAPER = new Block(
         BlockBehaviour.Properties.ofFullCopy(Blocks.RED_WOOL).sound(SoundType.WOOL));
     public static final Block HOTEL_FLOOR = new Block(
         BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_STONE).sound(SoundType.STONE));
-
     public static final Block POOL_TILE = new Block(
         BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).sound(SoundType.STONE));
-    // SoundType.WATER removed in 1.21.1 — WET_GRASS is the closest available
     public static final Block POOL_WATER_BLOCK = new Block(
         BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_CONCRETE).lightLevel(s -> 7).sound(SoundType.WET_GRASS));
-
     public static final Block WET_CARPET = new WetCarpetkBlock(
         BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CARPET).sound(SoundType.WOOL));
 

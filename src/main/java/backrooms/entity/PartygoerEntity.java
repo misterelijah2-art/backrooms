@@ -22,28 +22,25 @@ public class PartygoerEntity extends Monster {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 60.0)
-                .add(Attributes.MOVEMENT_SPEED, 0.28)
-                .add(Attributes.ATTACK_DAMAGE, 6.0)
-                .add(Attributes.ARMOR, 4.0)
+                .add(Attributes.MAX_HEALTH, 30.0)
+                .add(Attributes.MOVEMENT_SPEED, 0.35)
+                .add(Attributes.ATTACK_DAMAGE, 5.0)
                 .add(Attributes.FOLLOW_RANGE, 32.0);
     }
 
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0, false));
-        this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 0.8));
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2, true));
+        this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 1.0));
         this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0f));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
-    // 1.21.1 signature: doHurtTarget(ServerLevel, Entity)
     @Override
-    public boolean doHurtTarget(ServerLevel serverLevel, Entity target) {
-        boolean hit = super.doHurtTarget(serverLevel, target);
+    public boolean doHurtTarget(ServerLevel level, Entity target) {
+        boolean hit = super.doHurtTarget(level, target);
         if (hit && target instanceof LivingEntity living) {
-            // CONFUSION was renamed to NAUSEA in 1.21
             living.addEffect(new MobEffectInstance(MobEffects.NAUSEA, 200, 1));
             living.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 100, 1));
         }
