@@ -10,9 +10,6 @@ import net.minecraft.world.effect.MobEffectCategory;
 
 public class BackroomsEffects {
 
-    // In 1.21.1 hasEffect() requires Holder<MobEffect>, not MobEffect directly.
-    // Register via Registry and keep the Holder reference.
-
     public static final Holder<MobEffect> NOCLIP_EFFECT;
     public static final Holder<MobEffect> PARANOIA;
     public static final Holder<MobEffect> BACKROOMS_SICKNESS;

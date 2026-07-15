@@ -1,33 +1,30 @@
 package backrooms;
 
-import backrooms.registry.BackroomsBlocks;
-import backrooms.registry.BackroomsItems;
-import backrooms.registry.BackroomsEntities;
-import backrooms.registry.BackroomsDimensions;
-import backrooms.registry.BackroomsEffects;
-import backrooms.registry.BackroomsSounds;
+import backrooms.registry.*;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Backrooms implements ModInitializer {
+
     public static final String MOD_ID = "backrooms";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     @Override
     public void onInitialize() {
-        LOGGER.info("[Backrooms] Initializing...");
+        LOGGER.info("You have noclipped into the Backrooms.");
+
         BackroomsSounds.register();
+        BackroomsEffects.register();
         BackroomsBlocks.register();
         BackroomsItems.register();
-        BackroomsEffects.register();
         BackroomsEntities.register();
-        BackroomsDimensions.register();
-        LOGGER.info("[Backrooms] Initialized.");
+        BackroomsEntities.registerAttributes();
+        // BackroomsDimensions has no register() — keys are defined as constants only
     }
 
-    public static Identifier id(String path) {
-        return Identifier.fromNamespaceAndPath(MOD_ID, path);
+    public static ResourceLocation id(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 }

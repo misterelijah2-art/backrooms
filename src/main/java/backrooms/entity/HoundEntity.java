@@ -32,8 +32,9 @@ public class HoundEntity extends Monster {
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
+    // isSunBurnTick() removed in 1.21.1 — use shouldBurnInDay()
     @Override
-    protected boolean isSunBurnTick() {
+    protected boolean shouldBurnInDay() {
         return false;
     }
 }

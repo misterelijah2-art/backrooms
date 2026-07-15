@@ -36,16 +36,16 @@ public class SmilerEntity extends Monster {
     @Override
     public void tick() {
         super.tick();
-        // Smiler is invisible in light (>= 4 sky/block light), visible only in darkness
+        // Smiler is invisible in light, visible only in darkness
         if (!this.level().isClientSide()) {
             int blockLight = this.level().getBrightness(LightLayer.BLOCK, this.blockPosition());
             this.setInvisible(blockLight >= 4);
         }
     }
 
-    // Smiler never burns in sunlight (it's already in a dim dimension)
+    // isSunBurnTick() was removed in 1.21.1. Use shouldBurnInDay() instead.
     @Override
-    protected boolean isSunBurnTick() {
+    protected boolean shouldBurnInDay() {
         return false;
     }
 }

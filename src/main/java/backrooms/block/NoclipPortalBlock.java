@@ -14,9 +14,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
-import java.util.EnumSet;
-import net.minecraft.world.entity.RelativeMovement;
-
 public class NoclipPortalBlock extends Block {
 
     private final ResourceKey<Level> destination;
@@ -33,11 +30,16 @@ public class NoclipPortalBlock extends Block {
             if (dest != null) {
                 level.playSound(null, pos, BackroomsSounds.NOCLIP_ENTER,
                         SoundSource.MASTER, 1.0f, 1.0f);
-                // 1.21.1 signature: teleportTo(ServerLevel, x, y, z, relativeFlags, yRot, xRot, sendVelocity)
-                player.teleportTo(dest,
+                // In 1.21.1 Mojmap the full teleportTo overload is:
+                // teleportTo(ServerLevel, double, double, double,
+                //            Set<net.minecraft.world.entity.RelativeMovement>, float, float)
+                // RelativeMovement is in net.minecraft.world.entity package
+                player.teleportTo(
+                        dest,
                         player.getX(), player.getY(), player.getZ(),
-                        EnumSet.noneOf(RelativeMovement.class),
-                        player.getYRot(), player.getXRot(), false);
+                        java.util.Set.of(),   // no relative flags
+                        player.getYRot(), player.getXRot()
+                );
             }
         }
         super.stepOn(level, pos, state, entity);
