@@ -1,0 +1,1 @@
+{ "parent": "minecraft:block/carpet", "textures": { "wool": "backrooms:block/wet_carpet" } }

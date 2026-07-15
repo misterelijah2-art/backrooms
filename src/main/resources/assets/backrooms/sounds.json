@@ -1,0 +1,56 @@
+{
+  "ambient.hum": {
+    "category": "ambient",
+    "sounds": [
+      { "name": "backrooms:ambient/hum", "stream": true }
+    ]
+  },
+  "ambient.distant_scrape": {
+    "category": "ambient",
+    "sounds": [
+      { "name": "backrooms:ambient/distant_scrape" }
+    ]
+  },
+  "entity.smiler.idle": {
+    "category": "hostile",
+    "sounds": [
+      { "name": "backrooms:entity/smiler/idle" }
+    ]
+  },
+  "entity.smiler.hurt": {
+    "category": "hostile",
+    "sounds": [
+      { "name": "backrooms:entity/smiler/hurt" }
+    ]
+  },
+  "entity.smiler.death": {
+    "category": "hostile",
+    "sounds": [
+      { "name": "backrooms:entity/smiler/death" }
+    ]
+  },
+  "entity.partygoer.idle": {
+    "category": "hostile",
+    "sounds": [
+      { "name": "backrooms:entity/partygoer/idle" }
+    ]
+  },
+  "entity.partygoer.hurt": {
+    "category": "hostile",
+    "sounds": [
+      { "name": "backrooms:entity/partygoer/hurt" }
+    ]
+  },
+  "level.transition": {
+    "category": "master",
+    "sounds": [
+      { "name": "backrooms:level/transition" }
+    ]
+  },
+  "noclip.enter": {
+    "category": "master",
+    "sounds": [
+      { "name": "backrooms:noclip/enter" }
+    ]
+  }
+}

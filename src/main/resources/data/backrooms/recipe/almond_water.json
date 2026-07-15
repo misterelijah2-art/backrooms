@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:water_bucket" },
+    { "item": "minecraft:sugar" },
+    { "item": "minecraft:milk_bucket" }
+  ],
+  "result": { "id": "backrooms:almond_water", "count": 3 }
+}
