@@ -2,6 +2,7 @@ package backrooms.registry;
 
 import backrooms.Backrooms;
 import backrooms.block.WetCarpetkBlock;
+import backrooms.block.NoclipPortalBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -60,7 +61,6 @@ public class BackroomsBlocks {
     public static final Block DRIPPING_PIPE = new Block(
         BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
             .sound(SoundType.METAL)
-            .lightLevel(s -> 0)
     );
     public static final Block STEAM_VENT = new Block(
         BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
@@ -115,11 +115,47 @@ public class BackroomsBlocks {
             .lightLevel(s -> 7)
     );
 
-    // === WET CARPET (special) ===
+    // === SPECIAL ===
     public static final Block WET_CARPET = new WetCarpetkBlock(
         BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CARPET)
             .sound(SoundType.WOOL)
-            .mapColor(net.minecraft.world.level.material.MapColor.COLOR_YELLOW)
+    );
+
+    // === PORTALS (noclip triggers) ===
+    public static final Block PORTAL_LEVEL_0 = new NoclipPortalBlock(
+        BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)
+            .lightLevel(s -> 8).noOcclusion(),
+        BackroomsDimensions.LEVEL_0
+    );
+    public static final Block PORTAL_LEVEL_1 = new NoclipPortalBlock(
+        BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)
+            .lightLevel(s -> 6).noOcclusion(),
+        BackroomsDimensions.LEVEL_1
+    );
+    public static final Block PORTAL_LEVEL_2 = new NoclipPortalBlock(
+        BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)
+            .lightLevel(s -> 4).noOcclusion(),
+        BackroomsDimensions.LEVEL_2
+    );
+    public static final Block PORTAL_LEVEL_3 = new NoclipPortalBlock(
+        BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)
+            .lightLevel(s -> 3).noOcclusion(),
+        BackroomsDimensions.LEVEL_3
+    );
+    public static final Block PORTAL_LEVEL_4 = new NoclipPortalBlock(
+        BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)
+            .lightLevel(s -> 2).noOcclusion(),
+        BackroomsDimensions.LEVEL_4
+    );
+    public static final Block PORTAL_LEVEL_5 = new NoclipPortalBlock(
+        BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)
+            .lightLevel(s -> 1).noOcclusion(),
+        BackroomsDimensions.LEVEL_5
+    );
+    public static final Block PORTAL_POOLROOMS = new NoclipPortalBlock(
+        BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)
+            .lightLevel(s -> 5).noOcclusion(),
+        BackroomsDimensions.POOLROOMS
     );
 
     public static void register() {
@@ -143,29 +179,13 @@ public class BackroomsBlocks {
         reg("pool_tile", POOL_TILE);
         reg("pool_water_block", POOL_WATER_BLOCK);
         reg("wet_carpet", WET_CARPET);
-
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> {
-            entries.accept(MOIST_CARPET);
-            entries.accept(MONO_WALLPAPER);
-            entries.accept(FLICKERING_LIGHT);
-            entries.accept(FLUORESCENT_LIGHT);
-            entries.accept(CONCRETE_PILLAR);
-            entries.accept(INDUSTRIAL_FLOOR);
-            entries.accept(CHAIN_LINK_FENCE_BLOCK);
-            entries.accept(RUSTY_PIPE);
-            entries.accept(DRIPPING_PIPE);
-            entries.accept(STEAM_VENT);
-            entries.accept(ELECTRICAL_BOX);
-            entries.accept(DARK_CONCRETE);
-            entries.accept(OFFICE_TILES);
-            entries.accept(OFFICE_CEILING);
-            entries.accept(BROKEN_GLASS);
-            entries.accept(HOTEL_WALLPAPER);
-            entries.accept(HOTEL_FLOOR);
-            entries.accept(POOL_TILE);
-            entries.accept(POOL_WATER_BLOCK);
-            entries.accept(WET_CARPET);
-        });
+        reg("portal_level_0", PORTAL_LEVEL_0);
+        reg("portal_level_1", PORTAL_LEVEL_1);
+        reg("portal_level_2", PORTAL_LEVEL_2);
+        reg("portal_level_3", PORTAL_LEVEL_3);
+        reg("portal_level_4", PORTAL_LEVEL_4);
+        reg("portal_level_5", PORTAL_LEVEL_5);
+        reg("portal_poolrooms", PORTAL_POOLROOMS);
     }
 
     private static void reg(String name, Block block) {
