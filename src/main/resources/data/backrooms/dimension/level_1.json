@@ -1,0 +1,16 @@
+{
+  "type": "backrooms:level_1",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biomes": "backrooms:level_1",
+      "layers": [
+        { "block": "backrooms:industrial_floor", "height": 1 },
+        { "block": "minecraft:gray_concrete", "height": 3 },
+        { "block": "backrooms:concrete_pillar", "height": 1 }
+      ],
+      "structure_overrides": [],
+      "features": false
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "backrooms:level_5",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biomes": "backrooms:level_5",
+      "layers": [
+        { "block": "backrooms:hotel_floor", "height": 1 },
+        { "block": "backrooms:dark_concrete", "height": 2 },
+        { "block": "backrooms:hotel_wallpaper", "height": 1 }
+      ],
+      "structure_overrides": [],
+      "features": false
+    }
+  }
+}

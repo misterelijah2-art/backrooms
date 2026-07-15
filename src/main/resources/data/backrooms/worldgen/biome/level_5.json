@@ -1,0 +1,28 @@
+{
+  "precipitation": "none",
+  "temperature": 0.3,
+  "downfall": 0.0,
+  "effects": {
+    "fog_color": 2621440,
+    "sky_color": 2621440,
+    "water_color": 4159204,
+    "water_fog_color": 329011,
+    "ambient_sound": "backrooms:ambient.hum"
+  },
+  "spawners": {
+    "monster": [
+      { "type": "backrooms:partygoer", "weight": 40, "minCount": 1, "maxCount": 3 },
+      { "type": "backrooms:deathrat", "weight": 60, "minCount": 3, "maxCount": 8 },
+      { "type": "backrooms:smiler", "weight": 20, "minCount": 1, "maxCount": 1 }
+    ],
+    "creature": [],
+    "ambient": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "underground_water_creature": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {},
+  "features": []
+}

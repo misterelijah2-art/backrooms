@@ -1,0 +1,16 @@
+{
+  "type": "backrooms:level_4",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biomes": "backrooms:level_4",
+      "layers": [
+        { "block": "backrooms:office_tiles", "height": 1 },
+        { "block": "backrooms:industrial_floor", "height": 2 },
+        { "block": "backrooms:office_ceiling", "height": 1 }
+      ],
+      "structure_overrides": [],
+      "features": false
+    }
+  }
+}

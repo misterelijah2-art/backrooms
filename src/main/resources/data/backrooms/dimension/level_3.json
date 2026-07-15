@@ -1,0 +1,16 @@
+{
+  "type": "backrooms:level_3",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biomes": "backrooms:level_3",
+      "layers": [
+        { "block": "backrooms:dark_concrete", "height": 1 },
+        { "block": "backrooms:electrical_box", "height": 2 },
+        { "block": "backrooms:dark_concrete", "height": 1 }
+      ],
+      "structure_overrides": [],
+      "features": false
+    }
+  }
+}

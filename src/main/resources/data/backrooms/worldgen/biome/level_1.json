@@ -1,0 +1,29 @@
+{
+  "precipitation": "none",
+  "temperature": 0.6,
+  "downfall": 0.0,
+  "effects": {
+    "fog_color": 8421504,
+    "sky_color": 8421504,
+    "water_color": 4159204,
+    "water_fog_color": 329011,
+    "grass_color": 8421504,
+    "foliage_color": 8421504,
+    "ambient_sound": "backrooms:ambient.hum"
+  },
+  "spawners": {
+    "monster": [
+      { "type": "backrooms:smiler", "weight": 40, "minCount": 1, "maxCount": 3 },
+      { "type": "backrooms:hound", "weight": 30, "minCount": 2, "maxCount": 4 }
+    ],
+    "creature": [],
+    "ambient": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "underground_water_creature": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {},
+  "features": []
+}

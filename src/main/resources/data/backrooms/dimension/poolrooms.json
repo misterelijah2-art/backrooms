@@ -1,0 +1,16 @@
+{
+  "type": "backrooms:poolrooms",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biomes": "backrooms:poolrooms",
+      "layers": [
+        { "block": "backrooms:pool_tile", "height": 1 },
+        { "block": "minecraft:water", "height": 2 },
+        { "block": "backrooms:pool_tile", "height": 1 }
+      ],
+      "structure_overrides": [],
+      "features": false
+    }
+  }
+}

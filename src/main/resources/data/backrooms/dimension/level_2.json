@@ -1,0 +1,16 @@
+{
+  "type": "backrooms:level_2",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biomes": "backrooms:level_2",
+      "layers": [
+        { "block": "backrooms:rusty_pipe", "height": 1 },
+        { "block": "backrooms:industrial_floor", "height": 2 },
+        { "block": "backrooms:dark_concrete", "height": 1 }
+      ],
+      "structure_overrides": [],
+      "features": false
+    }
+  }
+}
