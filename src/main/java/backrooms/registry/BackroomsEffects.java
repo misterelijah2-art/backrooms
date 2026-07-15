@@ -1,28 +1,35 @@
 package backrooms.registry;
 
 import backrooms.Backrooms;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 
 public class BackroomsEffects {
 
-    public static final MobEffect NOCLIP_EFFECT = new MobEffect(
-        MobEffectCategory.HARMFUL, 0x1a1a2e
-    ) {};
+    // In 1.21.1 hasEffect() requires Holder<MobEffect>, not MobEffect directly.
+    // Register via Registry and keep the Holder reference.
 
-    public static final MobEffect PARANOIA = new MobEffect(
-        MobEffectCategory.HARMFUL, 0x4a0e0e
-    ) {};
+    public static final Holder<MobEffect> NOCLIP_EFFECT;
+    public static final Holder<MobEffect> PARANOIA;
+    public static final Holder<MobEffect> BACKROOMS_SICKNESS;
 
-    public static final MobEffect BACKROOMS_SICKNESS = new MobEffect(
-        MobEffectCategory.HARMFUL, 0x2e4a0e
-    ) {};
-
-    public static void register() {
-        Registry.register(BuiltInRegistries.MOB_EFFECT, Backrooms.id("noclip"), NOCLIP_EFFECT);
-        Registry.register(BuiltInRegistries.MOB_EFFECT, Backrooms.id("paranoia"), PARANOIA);
-        Registry.register(BuiltInRegistries.MOB_EFFECT, Backrooms.id("backrooms_sickness"), BACKROOMS_SICKNESS);
+    static {
+        NOCLIP_EFFECT = reg("noclip",
+            new backrooms.effect.NoclipEffect(MobEffectCategory.NEUTRAL, 0x9966FF));
+        PARANOIA = reg("paranoia",
+            new backrooms.effect.ParanoiaEffect(MobEffectCategory.HARMFUL, 0x330033));
+        BACKROOMS_SICKNESS = reg("backrooms_sickness",
+            new MobEffect(MobEffectCategory.HARMFUL, 0x1A0A00) {});
     }
+
+    private static Holder<MobEffect> reg(String name, MobEffect effect) {
+        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(Backrooms.MOD_ID, name);
+        return Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, id, effect);
+    }
+
+    public static void register() {}
 }

@@ -1,15 +1,14 @@
 package backrooms.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class WetCarpetkBlock extends Block {
 
@@ -18,9 +17,10 @@ public class WetCarpetkBlock extends Block {
     }
 
     @Override
-    public void stepOn(net.minecraft.world.level.Level level, BlockPos pos, BlockState state, Entity entity) {
-        if (!level.isClientSide && entity instanceof LivingEntity living) {
-            living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 0, false, false));
+    public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
+        if (!level.isClientSide() && entity instanceof LivingEntity living) {
+            // MOVEMENT_SLOWDOWN = Slowness in 1.21.1
+            living.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 40, 0, false, false));
         }
         super.stepOn(level, pos, state, entity);
     }

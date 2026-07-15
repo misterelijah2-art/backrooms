@@ -1,5 +1,9 @@
 package backrooms.item;
 
+import backrooms.registry.BackroomsEffects;
+import net.minecraft.core.Holder;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -17,18 +21,21 @@ public class AlmondWaterItem extends Item {
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity user) {
-        if (!level.isClientSide) {
-            user.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200, 1));
-            user.addEffect(new MobEffectInstance(MobEffects.SATURATION, 100, 0));
-            user.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 300, 0));
+        if (!level.isClientSide()) {
+            // Speed II for 15s
+            user.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 300, 1));
+            // Regeneration I for 10s
+            user.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0));
+            // Saturation
             if (user instanceof Player player) {
-                player.getFoodData().eat(4, 0.6f);
+                player.getFoodData().eat(4, 1.2f);
             }
         }
-        if (user instanceof Player player && !player.getAbilities().instabuild) {
+        // consume one bottle
+        if (!( user instanceof Player player && player.getAbilities().instabuild)) {
             stack.shrink(1);
         }
-        return stack.isEmpty() ? ItemStack.EMPTY : stack;
+        return stack;
     }
 
     @Override
@@ -42,8 +49,7 @@ public class AlmondWaterItem extends Item {
     }
 
     @Override
-    public net.minecraft.world.InteractionResultHolder<ItemStack> use(Level level,
-            Player player, net.minecraft.world.InteractionHand hand) {
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         return net.minecraft.world.item.ItemUtils.startUsingInstantly(level, player, hand);
     }
 }

@@ -3,29 +3,26 @@ package backrooms.registry;
 import backrooms.Backrooms;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.dimension.DimensionType;
 
 public class BackroomsDimensions {
 
-    public static final ResourceKey<Level> LEVEL_0 =
-        ResourceKey.create(Registries.DIMENSION, Backrooms.id("level_0"));
-    public static final ResourceKey<Level> LEVEL_1 =
-        ResourceKey.create(Registries.DIMENSION, Backrooms.id("level_1"));
-    public static final ResourceKey<Level> LEVEL_2 =
-        ResourceKey.create(Registries.DIMENSION, Backrooms.id("level_2"));
-    public static final ResourceKey<Level> LEVEL_3 =
-        ResourceKey.create(Registries.DIMENSION, Backrooms.id("level_3"));
-    public static final ResourceKey<Level> LEVEL_4 =
-        ResourceKey.create(Registries.DIMENSION, Backrooms.id("level_4"));
-    public static final ResourceKey<Level> LEVEL_5 =
-        ResourceKey.create(Registries.DIMENSION, Backrooms.id("level_5"));
-    public static final ResourceKey<Level> POOLROOMS =
-        ResourceKey.create(Registries.DIMENSION, Backrooms.id("poolrooms"));
+    // In 1.21.1 Fabric, ResourceLocation is net.minecraft.resources.ResourceLocation
+    // (not net.minecraft.resources.ResourceLocation from Identifier — that's the Yarn mapping name)
+    // Use ResourceKey.create(Level.DIMENSION_REGISTRY, ...) to define dimension keys.
 
-    public static void register() {
-        // Dimensions are registered via datapack JSON in data/backrooms/dimension/
-        Backrooms.LOGGER.info("[Backrooms] Dimension keys registered.");
+    public static final ResourceKey<Level> LEVEL_0 = key("level_0");
+    public static final ResourceKey<Level> LEVEL_1 = key("level_1");
+    public static final ResourceKey<Level> LEVEL_2 = key("level_2");
+    public static final ResourceKey<Level> LEVEL_3 = key("level_3");
+    public static final ResourceKey<Level> LEVEL_4 = key("level_4");
+    public static final ResourceKey<Level> LEVEL_5 = key("level_5");
+    public static final ResourceKey<Level> POOLROOMS = key("poolrooms");
+
+    private static ResourceKey<Level> key(String name) {
+        return ResourceKey.create(
+            net.minecraft.core.registries.Registries.DIMENSION,
+            ResourceLocation.fromNamespaceAndPath(Backrooms.MOD_ID, name)
+        );
     }
 }
